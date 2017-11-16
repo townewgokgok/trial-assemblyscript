@@ -1,0 +1,21 @@
+{
+  "name": "trial-assemblyscript",
+  "version": "1.0.0",
+  "scripts": {
+    "prebuild-as": "mkdir -p dist",
+    "build-as": "asc -c tsconfig-as.json --noRuntime -O -o dist/trial.wasm --textFile dist/trial.wat src/as/trial.ts",
+    "prebuild-ts": "mkdir -p dist",
+    "build-ts": "tsc",
+    "build": "npm run build-as && npm run build-ts",
+    "prestart": "npm run build",
+    "start": "node dist/main.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "assemblyscript": "^0.3.0",
+    "typescript": "^2.6.1"
+  },
+  "dependencies": {
+    "assemblyscript-loader": "^0.3.0"
+  }
+}
